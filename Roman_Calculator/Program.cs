@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace Roman_Calculator
+﻿namespace Roman_Calculator
 {
     using static System.Console;
 
@@ -17,9 +13,11 @@ namespace Roman_Calculator
 
                 Write($"Second arg: ");
                 Calculator.RightSide = ReadLine()?.ToUpper();
+
                 var result = Calculator.Add();
 
                 WriteLine($"Result: {result}");
+
                 WriteLine("====== \n");
            }
         }

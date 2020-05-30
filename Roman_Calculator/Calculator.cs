@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
+using Roman_Calculator.Enums;
+
+using static Roman_Calculator.Extensions.EnumExtensions;
 
 namespace Roman_Calculator
 {
@@ -13,7 +16,7 @@ namespace Roman_Calculator
         public static string? LeftSide = null;
         public static string? RightSide = null;
 
-        static Dictionary<string, int> romanNumbers = new Dictionary<string, int>()
+        private static Dictionary<string, int> romanNumbers = new Dictionary<string, int>()
            {
                {"I",    1},
                {"V",    5},
@@ -24,7 +27,7 @@ namespace Roman_Calculator
                {"M", 1000}
            };
 
-        public static int Add()
+        public static string Add()
         {
             if (LeftSide is null || RightSide is null)
             {
@@ -37,7 +40,9 @@ namespace Roman_Calculator
             LeftSide = null;
             RightSide = null;
 
-            return left + right;
+            var sum = left + right;
+
+            return ArabicToRoman(sum);
         }
 
         public static int Evaluate(string numbers)
@@ -82,8 +87,38 @@ namespace Roman_Calculator
                 500 => "D",
                 900 => "CM",
                 1000 => "M",
-                _ => string.Empty
+                _ => CalculateArabicToRoman(number)
             };
+
+        private static string CalculateArabicToRoman(int number)
+        {
+            var sb = new StringBuilder();
+
+            var names = EnumToNames<RomanNumbers>().Reverse();
+            var values = EnumToValues<RomanNumbers>().Reverse();
+
+            var list = names.Zip(values, (n, v) => new { Name = n, Value = v });
+            
+            foreach (var item in list)
+            {
+                sb.Append(Repeat(item.Name, (number / item.Value)));
+                number %= item.Value;
+            }
+            
+            return sb.ToString();
+        }
+
+        private static string Repeat(string s, int times)
+        {
+            var sb = new StringBuilder();
+
+            for (int i = 0; i < times; i++)
+            {
+                sb.Append(s);
+            }
+
+            return sb.ToString();
+        }
 
         public static int RomanToArabic(string number)
             => number switch
