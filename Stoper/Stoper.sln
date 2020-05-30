@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.128
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stoper", "Stoper.csproj", "{BA660BB8-D099-4471-8FAE-E74C1662F4FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_Stoper", "..\Test_Stoper\Test_Stoper.csproj", "{F8AAF1E3-D428-4CE7-A304-962A54E85D7F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA660BB8-D099-4471-8FAE-E74C1662F4FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA660BB8-D099-4471-8FAE-E74C1662F4FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA660BB8-D099-4471-8FAE-E74C1662F4FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA660BB8-D099-4471-8FAE-E74C1662F4FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8AAF1E3-D428-4CE7-A304-962A54E85D7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8AAF1E3-D428-4CE7-A304-962A54E85D7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8AAF1E3-D428-4CE7-A304-962A54E85D7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8AAF1E3-D428-4CE7-A304-962A54E85D7F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BBC9548F-6F56-4538-942F-87AAE60201FF}
+	EndGlobalSection
+EndGlobal
