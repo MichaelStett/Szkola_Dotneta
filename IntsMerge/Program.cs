@@ -23,7 +23,7 @@ namespace IntsMerge
 
         static void Main(string[] args)
         {
-            if (args.Length == 0)
+            if (args.Length == 0 || args.Length == 1)
             {
                 WriteLine("Please enter at least two arguments.");
                 Exit(-1);
