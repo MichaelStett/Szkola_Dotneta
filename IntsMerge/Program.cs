@@ -22,7 +22,7 @@ namespace IntsMerge
 
         static void Main(string[] args)
         {
-            if (args.Length == 0 || args.Length == 1)
+            if (args.Length == 0)
             {
                 WriteLine("Please enter at least two arguments.");
             }
@@ -39,11 +39,18 @@ namespace IntsMerge
                     numbers.Add(number);
             }
 
-            var max = numbers.Max();
-            var min = numbers.Min();
+            if (numbers.Any())
+            {
+                var max = numbers.Max();
+                var min = numbers.Min();
 
-            WriteLine($"Min: {min}");
-            WriteLine($"Max: {max}");
+                WriteLine($"Min: {min}");
+                WriteLine($"Max: {max}");
+            }
+            else
+            {
+                WriteLine("Arguments concatenated exceeds Int32.MaxValue");
+            }
         }
     }
 }
