@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using static System.Console;
+using static System.Environment;
 
 namespace IntsMerge
 {
@@ -25,11 +26,20 @@ namespace IntsMerge
             if (args.Length == 0)
             {
                 WriteLine("Please enter at least two arguments.");
+                Exit(-1);
             }
 
-            var input = new List<string>(args);
+            var input = args.Select(arg => int.Parse(arg));
 
-            var inputPermutated = GetPermutations(input, input.Count);
+            if (input.Min() < 0)
+            {
+                WriteLine("Please enter only positive arguments.");
+                Exit(-1);
+            }
+
+            var length = input.Count();
+
+            var inputPermutated = GetPermutations(input, length);
 
             var numbers = new List<int>();
 
