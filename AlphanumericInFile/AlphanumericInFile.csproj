@@ -6,9 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="random.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="nadniemnem.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

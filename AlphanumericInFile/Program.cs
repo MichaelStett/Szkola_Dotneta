@@ -33,12 +33,13 @@ namespace AlphanumericInFile
         static Program()
         {
             SetIn(new StreamReader(OpenStandardInput()));
+            SetOut(new StreamWriter(OpenStandardOutput()));
 
             Enumerable.Range('a', 26).ToList().ForEach(letter => Count.Add(letter, 0));
             Enumerable.Range(0, 10).ToList().ForEach(number => Count.Add(number, 0));
         }
 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             var lines = new List<string>(In.ReadToEnd().Split(separator: NewLine)).ConvertAll(l => l.ToLower());
 
@@ -57,17 +58,20 @@ namespace AlphanumericInFile
                 }
             }
 
+            using var file = File.CreateText("result.txt");
+
             foreach (var item in Count.OrderByDescending(item => item.Value).Take(10))
             {
                 if (item.Key.ToChar().IsLetterLowercase())
                 {
-                    WriteLine($"{item.Key.ToChar()}: {item.Value}");
+                    await file.WriteLineAsync($"{item.Key.ToChar()}: {item.Value}");
                 }
                 else
                 {
-                    WriteLine($"{item.Key}: {item.Value}");
+                    await file.WriteLineAsync($"{item.Key}: {item.Value}");
                 }
             }
+
         }
     }
 }
