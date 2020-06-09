@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.128
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CheckPower_Test", "CheckPower_Test\CheckPower_Test.csproj", "{BD5C26A3-DDD4-409E-9F41-A173D51D637C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CheckPower", "Program\CheckPower.csproj", "{B3AB9FB9-1FD7-460A-9A39-A8D6D845C615}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD5C26A3-DDD4-409E-9F41-A173D51D637C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD5C26A3-DDD4-409E-9F41-A173D51D637C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD5C26A3-DDD4-409E-9F41-A173D51D637C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD5C26A3-DDD4-409E-9F41-A173D51D637C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3AB9FB9-1FD7-460A-9A39-A8D6D845C615}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3AB9FB9-1FD7-460A-9A39-A8D6D845C615}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3AB9FB9-1FD7-460A-9A39-A8D6D845C615}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3AB9FB9-1FD7-460A-9A39-A8D6D845C615}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AB9D16B8-3F2A-42CB-83D4-4F7E864D54FE}
+	EndGlobalSection
+EndGlobal
