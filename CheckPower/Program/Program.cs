@@ -12,7 +12,7 @@ namespace CheckPower
     {
         public static bool IsSquareOf(this IEnumerable<int> squares, IEnumerable<int> numbers)
         {
-            var numbersSquared = numbers.Select(n => ToInt32(Pow(n, 2))).ToList();
+            var numbersSquared = numbers.Select(n => n*n).ToList();
 
             return Enumerable.SequenceEqual(numbersSquared, squares);
         }
@@ -24,7 +24,7 @@ namespace CheckPower
         {
             var numbers = new List<int> { 1, 2, 3, 4, 5 };
             var squares = new List<int> { 1, 4, 9, 16, 25 };
-
+            
             var IsEqual = squares.IsSquareOf(numbers);
 
             WriteLine($"{IsEqual}");
