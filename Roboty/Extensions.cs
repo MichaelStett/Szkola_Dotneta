@@ -15,7 +15,12 @@ namespace Roboty
 
         public static List<T> Replace<T>(this List<T> enumerable, T obj1, T obj2)
         {
-            enumerable[enumerable.IndexOf(obj1)] = obj2;
+            var index = enumerable.IndexOf(obj1);
+
+            if (index != -1)
+            {
+                enumerable[index] = obj2;
+            }
 
             return enumerable;
         }

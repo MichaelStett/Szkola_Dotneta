@@ -6,9 +6,9 @@ namespace Roboty
     {
         static void Main(string[] args)
         {
-            RobotFactory.Create(1000);
+            RobotFactory.Create(5);
 
-            //RobotFactory.NameLength = (2, 3);
+            RobotFactory.NameLength = (2, 3);
 
             foreach (var robot in RobotFactory.GetRobots())
             {
@@ -16,7 +16,7 @@ namespace Roboty
             }
             WriteLine();
 
-            RobotFactory.ResetRobot(0);
+            RobotFactory.ResetRobot(8);
 
             foreach (var robot in RobotFactory.GetRobots())
             {

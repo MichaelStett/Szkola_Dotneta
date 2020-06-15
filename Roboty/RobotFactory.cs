@@ -6,18 +6,17 @@ namespace Roboty
 {
     public static class RobotFactory
     {
+        const string Letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const string Numbers = "0123456789";
+
         public static int Repetitions = 0;
         public static (int Letter, int Number) NameLength = (2, 3);
 
-        private static List<Robot> _robots = new List<Robot>();
-        private static Random _random = new Random();
-
-        private static List<string> _types = new List<string>
-            {
-                "Translator",
-                "CoffeeMaking",
-                "Bartender",
-            };
+        private static readonly List<Robot> _robots = new List<Robot>();
+        private static readonly List<string> _types = new List<string>
+        {
+            "Translator", "CoffeeMaking", "Bartender",
+        };
 
 
         static RobotFactory()
@@ -33,32 +32,31 @@ namespace Roboty
                 {
                     _robots.Add(robot);
                     count--;
-                } 
+                }
                 else
                 {
                     Repetitions++;
                 }
-                    
+
             } while (count > 0);
         }
 
         private static bool TryCreateUnique(out Robot robot)
         {
-            string letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            string numbers = "0123456789";
+            var random = new Random();
 
-            var randomletters = letters.GetRandom(NameLength.Letter);
-            var randomnumbers = numbers.GetRandom(NameLength.Number);
+            var randomLetters = Letters.GetRandom(NameLength.Letter);
+            var randomNumbers = Numbers.GetRandom(NameLength.Number);
 
-            var newRobot = new Robot
+            var name = randomLetters + randomNumbers;
+
+            var isUnique = !_robots.Any(r => r.Name == name);
+
+            robot = new Robot
             {
-                Name = new string(randomletters + randomnumbers),
-                Type = _types[_random.Next(_types.Count)]
+                Name = name,
+                Type = _types[random.Next(_types.Count)]
             };
-
-            var isUnique = !_robots.Any(r => r.Name == newRobot.Name);
-
-            robot = newRobot;
 
             return isUnique;
         }
@@ -81,7 +79,7 @@ namespace Roboty
             {
                 success = TryCreateUnique(out var newRobot);
 
-                if(success)
+                if (success)
                 {
                     newRobot.Type = robot.Type;
                     _robots.Replace(robot, newRobot);
@@ -96,7 +94,14 @@ namespace Roboty
 
         public static void ResetRobot(int index)
         {
-            ResetRobot(_robots[index]);
+            if (index < _robots.Count)
+            {
+                ResetRobot(_robots[index]);
+            }
+            else
+            {
+                throw new IndexOutOfRangeException();
+            }
         }
     }
 }
