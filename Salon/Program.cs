@@ -27,12 +27,14 @@ namespace Salon
             chosenTenClients.ForEach(client =>
             {
                 var randomTime = DateTime.Today.AddHours(random.Next(DateTime.Now.Hour - 1, 24))
-                                         .AddMinutes(random.Next(59))
-                                         .TimeOfDay.ToString();
+                                               .AddMinutes(random.Next(59)).TimeOfDay
+                                               .ToString();
                 
-                WriteLine($"Radnom Time: {randomTime}");
+                WriteLine($"Random Time: {randomTime}");
 
-                Salon.CreateNextReservation(client.Id, randomTime);
+                var cost = Salon.CreateNextReservation(client.Id, randomTime);
+
+                WriteLine($"Cost: {cost}");
             });
 
             foreach (var reservation in Salon.Reservations)
